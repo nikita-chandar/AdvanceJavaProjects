@@ -1,0 +1,10 @@
+package com.jdbc.mavenstored_procedure;
+
+public class CompanyInsert {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

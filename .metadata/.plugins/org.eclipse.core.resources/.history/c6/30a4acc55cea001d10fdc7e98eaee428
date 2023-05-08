@@ -1,0 +1,70 @@
+package Com.jdbc.user;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class UserCRUD {
+//INSIDE A JDBC  getConnectin() IS OVELOADED METHOD
+	
+	public Connection getConnection() throws IOException, ClassNotFoundException, SQLException
+	{
+		FileInputStream fileInputStream=new FileInputStream("dbcfg.properties");
+		Properties properties =new Properties();
+		properties.load(fileInputStream);
+		
+		Class.forName(properties.getProperty("className"));
+		Connection connection=DriverManager.getConnection(properties.getProperty("url"),properties.getProperty("user"),properties.getProperty("password"));
+		return connection;
+		
+	}
+	
+	public void signupUser(User user) throws Exception
+	{
+		Connection connection=getConnection();
+		PreparedStatement preparedstament=connection.prepareStatement("INSERT INTO USER(ID,NAME,EMAIL,PASSWORD,ADDRESS) VALUES(?,?,?,?,?)");
+		preparedstament.setInt(1,user.getId());
+		preparedstament.setString(2,user.getName());
+		preparedstament.setString(3, user.getEmail());
+		preparedstament.setString(4, user.getPassword());
+		preparedstament.setString(5, user.getAddress());
+		int count=preparedstament.executeUpdate();
+		if(count==1)
+		{
+			System.out.println("SignedUp Succesfully!!");
+			
+		}
+		else
+		{
+			System.out.println("Failed to sign up");
+		}
+		connection.close();
+		
+	}
+	public void userLogin(User user) throws ClassNotFoundException, IOException, SQLException
+	{
+		Connection connection=getConnection();
+		PreparedStatement preparedstatement=connection.prepareStatement("INSERT INTO USER (NAME,PASSWORD)VALUES(?,?) WHERE ID=?");
+		//preparedstatement.setInt(1,user.getId());
+		preparedstatement .setString(1,user.getName());
+		preparedstatement.setString(2,user.getPassword());
+		int count=preparedstatement.executeUpdate();
+		if(count==1)
+		{
+			System.out.println("Login Succesfully!!");
+			
+		}
+		else
+		{
+			System.out.println("Failed to Login");
+		}
+		connection.close();
+	}
+}	
+	
+

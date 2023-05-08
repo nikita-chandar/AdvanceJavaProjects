@@ -1,0 +1,64 @@
+package Com.jdbc.user;
+
+import java.util.Scanner;
+
+public class UserMain {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub 
+		
+		Scanner scanner=new Scanner(System.in);
+		
+		User user=new User();
+		UserCRUD crud=new UserCRUD();
+		boolean condition=true;
+		do
+		{
+		System.out.println("Enter the choice");
+		System.out.println("\n1.SignUP user  \n2.Login User \n3.Exit");
+		int choice=scanner.nextInt();
+		switch(choice)
+		{
+		case 1:
+		{
+		System.out.println("Enter the id");
+		user.setId(scanner.nextInt());
+		System.out.println("Enter the name");
+		user.setName(scanner.next());
+		System.out.println("Enter the email");
+		user.setEmail(scanner.next());
+		System.out.println("Enter the password:");
+		user.setPassword(scanner.next());
+		System.out.println("Enter the address");
+		user.setAddress(scanner.next());
+		
+		crud.signupUser(user);
+		}
+		break;
+		case 2:
+		{
+			System.out.println("Enter Username as email");
+			user.setEmail(scanner.next());
+			System.out.println("Enter Password");
+			user.setPassword(scanner.next());
+			boolean result=crud.userLogin(user);
+			if(result)
+			{
+				System.out.println("Logged in Succesfully!!");
+			}
+			else
+			{
+				System.out.println("failed to login!!");
+			}
+		}
+		break;
+		case 3:System.out.println("Exit..");
+		break;
+		default:
+			//System.out.println("Incorrect statement.plz try Again");
+			condition=false;
+		}
+	}while(condition);
+	}	
+
+	}

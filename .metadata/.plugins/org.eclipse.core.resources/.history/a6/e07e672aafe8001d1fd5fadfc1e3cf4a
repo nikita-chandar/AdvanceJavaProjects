@@ -1,0 +1,24 @@
+package jdbc_maven1;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.util.Properties;
+
+public class PersonCRUD {
+	
+	public Connection getConnection()
+	 FileInputStream fileInpitStream=new FileInputStream("dbcfg.properties");
+	 Properties properties=new Properties();
+	 properties.load(fileInpitStream);
+	 
+	 class.forName(properties.getProperty("className"));
+	 Connection connection=DriverManeger.getConnection(properties.getProperty("url")),
+			 properties.getProperty("user"),properties.getProperty("password"));
+			 return connection;
+			 
+	 
+	public void savePerson(int id,String name,long phone)
+	{
+		
+	}
+}

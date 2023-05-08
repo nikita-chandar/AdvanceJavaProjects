@@ -1,0 +1,26 @@
+package jdbc_maven1;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class PersonMain {
+
+			public static void main(String[] args) {
+				Scanner sc=new Scanner(System.in);
+				PersonCRUD crud=new PersonCRUD();
+				
+				System.out.println("Enter the choice \n1.Save Person \n2.Update Person \n3.Delete Person \4.get personBy Id");
+				int choice=sc.nextInt();
+				System.out.println("Enter id:");
+				int id=sc.nextInt();
+				System.out.println("Enter Name:");
+				String Name=sc.next();
+				System.out.println("Enter Phone:");
+				long Phone=sc.nextLong();
+				
+				
+
+			}
+
+}

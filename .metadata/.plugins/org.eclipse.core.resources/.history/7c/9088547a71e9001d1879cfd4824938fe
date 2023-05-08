@@ -1,0 +1,5 @@
+package jdbc_maven1;
+
+public class Person {
+
+}

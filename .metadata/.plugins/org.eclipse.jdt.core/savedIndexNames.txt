@@ -1,0 +1,9 @@
+INDEX VERSION 1.131+E:\Software\WEWJ5\.metadata\.plugins\org.eclipse.jdt.core
+1635789370.index
+3257320035.index
+3815361398.index
+1366465458.index
+3375742040.index
+1289788366.index
+1815060902.index
+1731664355.index

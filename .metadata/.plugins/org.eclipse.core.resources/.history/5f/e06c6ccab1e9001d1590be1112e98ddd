@@ -1,0 +1,12 @@
+package Com.Jdbc.Maven.login;
+
+public class Login {
+	
+	private int id;
+	private String Name;
+	private long phone;
+	private 
+	private String email;
+	
+
+}

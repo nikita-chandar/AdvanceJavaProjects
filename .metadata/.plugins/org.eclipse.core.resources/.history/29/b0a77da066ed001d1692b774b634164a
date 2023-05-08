@@ -1,0 +1,22 @@
+package com.jdbc.mavenstored_procedure;
+
+import java.util.Scanner;
+
+public class CompanyInsert {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter the id");
+		int id=scanner.nextInt();
+		System.out.println("Enter the name");
+		String name=scanner.next();
+		System.out.println("Enter the gst");
+		String gst=scanner.next();
+		System.out.println("Enter the Address");
+		String address=scanner.next();
+		System.out.println("Enter the PhoneNO");
+		long phone=scanner.nextLong();
+	}
+
+}

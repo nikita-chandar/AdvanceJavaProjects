@@ -1,0 +1,36 @@
+package jdbc_maven1;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class PersonMain {
+
+			public static void main(String[] args) {
+				Scanner sc=new Scanner(System.in);
+				System.out.println("Enter id:");
+				int id=sc.nextInt();
+				System.out.println("Enter Name:");
+				String Name=sc.next();
+				System.out.println("Enter Phone:");
+				long Phone=sc.nextLong();
+				
+				PersonCRUD crud=new PersonCRUD();
+				try
+				{
+					crud.savePerson(id, Name, Phone);
+				}catch(ClassNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+				catch(IOException e)
+				{
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+}

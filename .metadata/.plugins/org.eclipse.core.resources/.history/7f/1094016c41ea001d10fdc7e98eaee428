@@ -1,0 +1,25 @@
+package Com.jdbc.user;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
+
+public class UserCRUD {
+//INSIDE A JDBC  getConnectin() IS OVELOADED METHOD
+	
+	public Connection getConnection() throws IOException, ClassNotFoundException, SQLException
+	{
+		FileInputStream fileInputStream=new FileInputStream("dbcfg.properties");
+		Properties properties =new Properties();
+		properties.load(fileInputStream);
+		
+		Class.forName(properties.getProperty("className"));
+		Connection connection=DriverManager.getConnection(properties.getProperty("url"),properties.getProperty("user"),properties.getProperty("password"));
+		return connection;
+		
+	}
+}
